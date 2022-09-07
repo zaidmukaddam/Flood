@@ -7,7 +7,7 @@ import sys, time
 from os import system, getenv
 
 # porgram version
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 # global variables
 attack = ''
@@ -29,6 +29,11 @@ cya = "\033[1;36m"
 cafe = "\033[1;33m"
 blu = "\033[1;34m"
 res = "\033[0;37;40m"
+
+QUOTS = [
+    "If i'd 8hrs to cut down a wood i will have spend the first 6hrs sharpening my axe.",
+    "Most prorgrammers do programming not "
+]
 
 # Simple interface
 def print_i():
@@ -84,7 +89,6 @@ def is_root():
 
 # This wizard porvides a simple UI to help beginner users
 def wizard():
-
     global attack, target, url, port, number_of_packets, bots_file, output
     print(f"""
 {cya}|--{red}[{yel}01{red}]{res} Generate spoofed source IP(s).
@@ -104,7 +108,6 @@ def wizard():
     if choice == '0' or choice == '00':
         sys.exit(0)
     elif choice == '1' or choice == '01':
-
         print(f"{blu}┌──({whi}FLOOD{blu})-[~{yel}Enter target's ip{blu}]")
         target = str(input(f"└─${res} "))
         print(f"{blu}┌──({whi}FLOOD{blu})-[~{yel}Name of file to write output{blu}]")
@@ -119,7 +122,6 @@ def wizard():
         #out = subprocess.run(['python3', 'botnets.py', target, output], capture_output=True)
         #print(out.stdout.decode())
     elif choice == '2' or choice == '02':
-
         print(f"{blu}┌──({whi}FLOOD{blu})-[~{yel}Enter target's URL{blu}]")
         url = str(input(f"└─${res} "))
 
@@ -247,7 +249,7 @@ def parse_args():
                 try:
                     tmp = int(sys.argv[i+1])
                 except ValueError:
-                    print_msg(sys.argv[i])
+                    print_msg()
                 number_of_packets = str(sys.argv[i+1])
             elif sys.argv[i] == '-g' or sys.argv[i] == '--generate':
 

