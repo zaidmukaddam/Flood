@@ -1,5 +1,5 @@
 /**
-**** author: zaidmukadam
+**** author: zaidmukaddam
 **** description: This is a C program that implements the theory of the DDoS TCP SYN flood attack
 **** discplaimer: Do not use this tool on any network you don't have permission to.
 **** By using this tool you agree that you'll be helt responsible for any damage caused

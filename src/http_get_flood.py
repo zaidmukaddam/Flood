@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Author: zaidmukadam(Zaid Mukaddam)
+# Author: zaidmukaddam(Zaid Mukaddam)
 # Description: This script is a simple implementation of the http get flood DoS attack.
 # Disclaimer: Do not use this tool on any website you don't have permission to.
 # By using this tool you agree that you'll be helt responsible for any damage caused.

@@ -23,7 +23,7 @@ don't permission. Be White Hat Hacker 😉️😀️.
 # Installation
 * Installing flood on any unix-like OS, note that this tool will not work on windows platform.
 ```
-git clone https://github.com/zaidmukadam/Flood.git
+git clone https://github.com/zaidmukaddam/Flood.git
 cd Flood
 chmod +x build.sh
 ./build.sh
@@ -129,4 +129,4 @@ It accepts only 2 arguments.
 ./flood.py --target 127.0.0.1 --packets 192002 --udp-flood
 ```
 # Author
-zaidmukadam - I am White Hat😎️.
+zaidmukaddam - I am White Hat😎️.
